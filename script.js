@@ -1,15 +1,15 @@
 // const { Stream } = require("stream")
 
-const video = document.getElementById("video");
+const video = document.getElementById("video"); //dapatkan elemnt id yang akan kita gunakan dengan beri nama video
 
-Promise.all([
+Promise.all([  //buat proimise apabila sudah melakukan function2 di dibwah ini maka jalankan start video
   faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
   faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
   faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
   faceapi.nets.faceExpressionNet.loadFromUri("/models"),
 ]).then(startVideo);
 
-function startVideo() {
+function startVideo() { //buat function video
   navigator.getUserMedia(
     { video: {} },
     (stream) => (video.srcObject = stream),
